@@ -5,16 +5,17 @@ import ReviewCard from '../ReieewCard/ReviewCard';
 import Card from '../Card/Card';
 import './Review.css';
 import HappyImages from '../../images/giphy.gif';
+import { useHistory } from 'react-router-dom';
 
 const Review = () => {
     const [card, setCard] = useState([]);
 
     const [orderPlaced, setOrderPlaced] = useState(false);
 
+    const history = useHistory()
+
     const handlePlaceOrder = () =>{
-        setCard([]);
-        setOrderPlaced(true);
-        processOrder();
+        history.push("/shipment")
     }
 
     const removeProduct = (productKey) => {
@@ -58,7 +59,7 @@ const Review = () => {
             
             <div className="card-container">
                <Card card ={card} >
-               <button onClick ={handlePlaceOrder} className="main-btn"> place Order</button>
+               <button onClick ={handlePlaceOrder} className="main-btn"> Proceed Checkout</button>
                </Card>
            </div>
         </div>
